@@ -6,8 +6,6 @@ return {
             vim.lsp.buf.format({})
         end
 
-        lspconfig.ast_grep.setup({})
-        lspconfig.denols.setup({})
     end,
     dependencies = {
         "williamboman/mason.nvim",

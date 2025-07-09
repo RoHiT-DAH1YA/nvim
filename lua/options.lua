@@ -22,3 +22,9 @@ vim.opt.virtualedit = "block"
 vim.opt.ignorecase = true
 vim.opt.termguicolors = true
 
+-- some more
+vim.opt.title = true
+vim.opt.backspace = {"start", "eol", "indent"}
+vim.opt.path:append({"**"})
+vim.opt.wildignore:append({"*/node_modules/"})
+

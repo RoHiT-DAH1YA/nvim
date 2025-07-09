@@ -16,4 +16,6 @@ require("lazy").setup({
     { import = "plugins.treesitter.import" },
     { import = "plugins.lsp.import" },
     { import = "plugins.other.import" },
+    { import = "plugins.mdconfig.import" },
+    { import = "plugins.completion_engine.import" },
 })

@@ -4,5 +4,5 @@ return {
         -- vim.cmd.colorscheme("PaperColor")
     end,
 
-},
+}
 
