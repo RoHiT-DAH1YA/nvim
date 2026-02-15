@@ -18,4 +18,5 @@ require("lazy").setup({
     { import = "plugins.other.import" },
     { import = "plugins.mdconfig.import" },
     { import = "plugins.completion_engine.import" },
+    { import = "plugins.image.import" },
 })

@@ -1,9 +1,11 @@
 -- Enable relative line numbers
 vim.opt.number = true
 vim.opt.relativenumber = true
+vim.opt.numberwidth = 4
 
 -- enable current line highlighting
 vim.opt.cursorline = true
+
 -- Set default indentation to four spaces
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
@@ -15,7 +17,7 @@ vim.opt.splitbelow = true
 vim.opt.splitright = true
 
 -- sync with system clipboard
-vim.opt.clipboard = "unnamedplus"
+-- vim.opt.clipboard = "unnamedplus"
 
 vim.opt.scrolloff = 999
 vim.opt.virtualedit = "block"
