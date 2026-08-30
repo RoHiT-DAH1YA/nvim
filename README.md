@@ -4,3 +4,5 @@ It has basic fucntionality
 - harpoon
 - treesitter
 - mason
+- indent Line
+- code completion - NeoCodium
