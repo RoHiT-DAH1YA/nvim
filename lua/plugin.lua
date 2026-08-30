@@ -15,8 +15,9 @@ require("lazy").setup({
     { import = "plugins.themes.import" },
     { import = "plugins.treesitter.import" },
     { import = "plugins.lsp.import" },
-    { import = "plugins.other.import" },
     { import = "plugins.mdconfig.import" },
     { import = "plugins.completion_engine.import" },
     { import = "plugins.image.import" },
+    { import = "plugins.ai-code-completion.import" },
+    { import = "plugins.other.import" },
 })

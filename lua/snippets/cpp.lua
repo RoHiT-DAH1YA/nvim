@@ -3,6 +3,78 @@ local s = ls.snippet
 local i = ls.insert_node
 local fmt = require("luasnip.extras.fmt").fmt
 
+-- =================== General Cpp ===================================
+local fori_table = {
+    c(1, { t("i"), t("j"), t("k") }),
+    rep(1),
+    i(2, "n"),
+    rep(1),
+    i(0),
+}
+local fori_body = [[
+for(ll {} = 0; {} < {}; {}++) {{
+    {}
+}}
+]]
+local forie_table = {
+    c(1, { t("i"), t("j"), t("k") }),
+    rep(1),
+    i(2, "n"),
+    rep(1),
+    i(0),
+}
+local forie_body = [[
+for(ll {} = 0; {} <= {}; {}++) {{
+    {}
+}}
+]]
+local forin_table = {
+    c(1, { t("i"), t("j"), t("k") }),
+    rep(1),
+    i(2, "n"),
+    rep(1),
+    i(0),
+}
+local forin_body = [[
+for(ll {} = 0; {} > {}; {}++) {{
+    {}
+}}
+]]
+local forine_table = {
+    c(1, { t("i"), t("j"), t("k") }),
+    rep(1),
+    i(2, "n"),
+    rep(1),
+    i(0),
+}
+local forine_body = [[
+for(ll {} = 0; {} >= {}; {}++) {{
+    {}
+}}
+]]
+
+local printV = [[
+template <typename T>
+void printV(const vector<T>& v, const string& sep = " ") {{
+    for (const auto& x : v) {{
+        cout << x << sep;
+    }}
+    cout << "\n";
+}}
+]]
+
+local printVV = [[
+template <typename T>
+void printVV(const vector<vector<T>>& v, const string& sep = " ") {{
+    for (const auto& row : v) {{
+        for (const auto& x : row) {{
+            cout << x << sep;
+        }}
+        cout << "\n";
+    }}
+}}
+]]
+-- =================== Competitive Programming ========================
 local contest_table = { 
                         i(0),
                         c(1, { t(""), t("// ")} ),
@@ -11,6 +83,7 @@ local contest_body = [[
 #include <bits/stdc++.h>
 using namespace std;
 typedef long long ll;
+#define nline '\n'
 
 void solve() {{
     {}
@@ -98,5 +171,13 @@ return {
     s("//fact", fmt(factorial_body, factorial_table)),
     s("//invfact", fmt(inverseFactorial_body, inverseFactorial_table)),
     s("//ncr", fmt(combination_body, combination_table)),
+
+    s("fori", fmt(fori_body, fori_table)),
+    s("forie", fmt(forie_body, forie_table)),
+    s("forin", fmt(forin_body, forin_table)),
+    s("forine", fmt(forine_body, forine_table)),
+    s("ptv", fmt(printV, {})),
+    s("ptvv", fmt(printVV, {})),
+
 
 }

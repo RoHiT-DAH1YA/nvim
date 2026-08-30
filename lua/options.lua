@@ -6,6 +6,15 @@ vim.opt.numberwidth = 4
 -- enable current line highlighting
 vim.opt.cursorline = true
 
+-- show a littel dot for whitespaces
+vim.opt.list = true
+vim.opt.listchars = {
+  tab = "→ ",
+  trail = "·",
+  nbsp = "␣",
+  space = "·",
+}
+
 -- Set default indentation to four spaces
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4

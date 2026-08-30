@@ -2,6 +2,17 @@ vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 vim.keymap.set("n", "<leader>sc", ":nohl<CR>")
 
+-- reload complete config again
+vim.keymap.set("n", "<leader>1", function()
+    for name,_ in pairs(package.loaded) do
+        if name:match("^config") then
+            package.loaded[name] = nil
+        end
+    end
+    dofile(vim.env.MYVIMRC)
+    print("Config reloaded!")
+end, { desc = "Reload Neovim config" })
+
 -- md files
 vim.keymap.set("n", "<leader>mp", ":MarkdownPreview<CR>", { desc = "Markdown Preview" })
 vim.keymap.set("n", "<leader>mg", ":Glow<CR>", { desc = "Glow Markdown Preview" })
@@ -46,3 +57,54 @@ vim.keymap.set("n", "<leader><leader>s", function()
   print("Snippets reloaded")
   end
 )
+
+-- ================ rempas for neocodium =====================
+vim.keymap.set("i", "<A-f>", function()
+    require("neocodeium").accept()
+end)
+
+vim.keymap.set("i", "<A-w>", function()
+    require("neocodeium").accept_word()
+end)
+
+vim.keymap.set("i", "<A-a>", function()
+    require("neocodeium").accept_line()
+end)
+
+vim.keymap.set("i", "<A-e>", function()
+    require("neocodeium").cycle_or_complete()
+end)
+
+vim.keymap.set("i", "<A-r>", function()
+    require("neocodeium").cycle_or_complete(-1)
+end)
+
+vim.keymap.set("i", "<A-c>", function()
+    require("neocodeium").clear()
+end)
+
+-- ================ rempas for Biome: formatter, linter, etc =====================
+vim.keymap.set("n", "<leader>b", vim.lsp.buf.format)
+vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action)
+
+vim.keymap.set("n", "<leader>oi", function()
+  vim.lsp.buf.code_action({
+    context = {
+      only = { "source.organizeImports" }
+    }
+  })
+end)
+
+-- apply all
+vim.keymap.set("n", "<leader>cf", function()
+  vim.lsp.buf.code_action({
+    context = {
+      only = { "source.fixAll.biome" }
+    }
+  })
+end)
+
+-- some lsp related
+vim.keymap.set("n", "gd", vim.lsp.buf.definition)
+vim.keymap.set("n", "gr", vim.lsp.buf.references)
+vim.keymap.set("n", "K", vim.lsp.buf.hover)
