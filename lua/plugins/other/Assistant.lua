@@ -4,7 +4,7 @@ return {
     branch = 'stable',
     lazy = false,
     keys = {
-        { '<leader>a', '<cmd>Assistant<cr>', desc = 'Assistant.nvim' }
+        { '<leader>d', '<cmd>Assistant<cr>', desc = 'Assistant.nvim' }
     },
     opts = {}
 }
